@@ -1,0 +1,42 @@
+{
+  "name": "santa_game",
+  "version": "1.0.0",
+  "description": "A Simple Game Project For Phaser3 in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "serve": "cross-env NODE_ENV=development webpack serve --config=config/webpack.dev.js",
+    "dev": "webpack --mode development && webpack serve --mode development",
+    "build": "cross-env NODE_ENV=production webpack && npm run doc && npm run doc-en",
+    "doc": "typedoc",
+    "doc-en": "typedoc --readme README_EN.md --out dist/docs_en",
+    "upload": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexZ33/santa_game.git"
+  },
+  "keywords": [
+    "Phaser"
+  ],
+  "author": "AlexZ33",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexZ33/santa_game/issues"
+  },
+  "homepage": "https://github.com/AlexZ33/santa_game#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "expose-loader": "^3.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.2.6",
+    "typedoc": "^0.22.10",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.1"
+  },
+  "dependencies": {
+    "phaser": "^3.55.2"
+  }
+}
