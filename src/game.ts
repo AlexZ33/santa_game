@@ -1,15 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 11:23:38
- * @LastEditTime: 2021-12-24 16:17:08
+ * @LastEditTime: 2021-12-27 15:27:43
  * @LastEditors: Please set LastEditors
  * @Description: 
  * Reference : https://github.com/digitsensitive/phaser3-typescript/blob/master/slides/cheatsheets/core/game.md
  * @FilePath: /santa_game/src/main.ts
  */
 import * as Phaser from 'phaser';
-import  {MainScene } from './scenes';
-import {GameConfig } from './config';
+import  {MainScene } from './scenes/mainScene';
+import resize from './components/resize'
+import FullScreenEvent from './components/fullscreenEvent';
+
+import { GameConfig } from './config';
 
 
 /**
@@ -17,15 +20,25 @@ import {GameConfig } from './config';
  *Handles booting, parsing the configuration values, creating the Renderer and setup global Phaser Systems (f.e. input)
  * When loaded, starts Scene Manager and the loop begins
  * @export
- * @class Game
+ * @class Gamel
  * @extends {Phaser.Game}
  */
 export class Game extends Phaser.Game {
+    public readonly mainScene: MainScene;
+    
     constructor( config: Phaser.Types.Core.GameConfig) {
+         //We use Phaser's config object to create the game, since this is the only way to disable debugging
         super(config);
+
+         console.log('Game Class config', config)
+        if(!config.backgroundColor) {
+            config.backgroundColor = 0xeeeeee;
+        }
     }
 }
 
+
+// when the page is load, create our game instance
 window.addEventListener('load', () => {
 
     if(window.innerWidth && window.innerHeight){
@@ -37,6 +50,14 @@ window.addEventListener('load', () => {
       }
       
     const game = new Game(GameConfig);
+
+    window.addEventListener('resize', () => {
+        resize(game)
+    })
+
+    FullScreenEvent(() => resize(game))
+
+    resize(game)
 })
 
 console.dir(Phaser)

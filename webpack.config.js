@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 11:19:09
- * @LastEditTime: 2021-12-24 18:30:53
+ * @LastEditTime: 2021-12-27 11:11:07
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /santa_game/webpack.config.js
@@ -55,8 +55,10 @@ module.exports = {
         host: "0.0.0.0",
         port: 1024,
         open: true,
+        hot: true
 	},
     plugins: [
+      // new CleanWebpackPlugin([`${distDir }`]),
         // npmjs.com/package/friendly-errors-webpack-plugin
 		new FriendlyErrorsWebpackPlugin({
 			compilationSuccessInfo: {

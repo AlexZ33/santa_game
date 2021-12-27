@@ -1,13 +1,16 @@
 /*
  * @Author: your name
  * @Date: 2021-12-24 14:35:22
- * @LastEditTime: 2021-12-24 16:13:05
+ * @LastEditTime: 2021-12-27 15:31:42
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /santa_game/src/config.ts
  */
 
 export const GameConfig: Phaser.Types.Core.GameConfig = {
+    width: 400,
+    height: 600,
+    backgroundColor: "#0000",
     type: Phaser.AUTO, // canvas
     title: '',
     url: '',
